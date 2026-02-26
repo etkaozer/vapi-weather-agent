@@ -94,30 +94,6 @@
       color: #a0aec0;
     }
 
-    /* Vapi Widget Mobile Responsive Styles */
-    vapi-widget {
-      position: fixed !important;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-
-      vapi-widget {
-        max-width: 90vw !important;
-        max-height: 80vh !important;
-      }
-
-      /* Override widget positioning on mobile */
-      vapi-widget::part(container) {
-        right: 1rem !important;
-        bottom: 1rem !important;
-        left: auto !important;
-        max-width: calc(100vw - 2rem) !important;
-        max-height: calc(100vh - 2rem) !important;
-      }
-    }
 
     @media (max-width: 600px) {
       h1 {
