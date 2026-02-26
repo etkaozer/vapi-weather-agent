@@ -109,21 +109,7 @@
       }
     }
 
-    /* Mobile: expand open widget panel to fill the entire screen */
-    @media (max-width: 600px) {
-      body.vapi-open .vapi-widget-wrapper > div {
-        inset: 0 !important;
-        width: 100vw !important;
-        height: 100dvh !important;
-      }
 
-      body.vapi-open .vapi-widget-wrapper > div > div {
-        width: 100vw !important;
-        height: 100dvh !important;
-        max-width: 100vw !important;
-        border-radius: 0 !important;
-      }
-    }
   </style>
 </head>
 <body>
@@ -172,37 +158,6 @@
 
     applyWidgetResponsiveness();
     window.addEventListener('resize', applyWidgetResponsiveness);
-
-    // Watch for the widget panel opening/closing and toggle `body.vapi-open`
-    // so our CSS can force the panel to fill the screen on mobile.
-    // When the panel is open the inner child is an expanded div (not the CTA button).
-    // We detect this by checking whether the inner child has an inline height set.
-    function observeWidgetState() {
-      const wrapper = document.querySelector('.vapi-widget-wrapper');
-      if (!wrapper) {
-        setTimeout(observeWidgetState, 200);
-        return;
-      }
-
-      function checkOpen() {
-        const positioningDiv = wrapper.firstElementChild;
-        const innerChild = positioningDiv && positioningDiv.firstElementChild;
-        // The expanded panel has inline height (e.g. "40rem"). The button does not.
-        const isOpen = !!(innerChild && innerChild.style && innerChild.style.height);
-        document.body.classList.toggle('vapi-open', isOpen);
-      }
-
-      new MutationObserver(checkOpen).observe(wrapper, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['style'],
-      });
-
-      checkOpen();
-    }
-
-    observeWidgetState();
   </script>
 </body>
 </html>
