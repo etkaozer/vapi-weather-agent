@@ -125,17 +125,37 @@
 
   <!-- Vapi Widget -->
   <vapi-widget
+    id="vapi-widget"
     public-key="e0758676-7dbe-4817-b192-c63cb00beec7"
     assistant-id="dd2446a2-acb5-4bbe-9cd0-5daadf743d28"
     mode="voice"
     theme="light"
     size="compact"
-    radius="large"
+    border-radius="large"
+    position="bottom-right"
     start-button-text="Start Voice Chat"
     end-button-text="End Call"
-    empty-voice-message="Click to start a voice conversation"
+    voice-empty-message="Click to start a voice conversation"
   ></vapi-widget>
 
   <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+
+  <script>
+    function applyWidgetResponsiveness() {
+      const widget = document.getElementById('vapi-widget');
+      if (!widget) return;
+
+      if (window.innerWidth <= 600) {
+        widget.setAttribute('size', 'full');
+        widget.setAttribute('position', 'bottom-center');
+      } else {
+        widget.setAttribute('size', 'compact');
+        widget.setAttribute('position', 'bottom-right');
+      }
+    }
+
+    applyWidgetResponsiveness();
+    window.addEventListener('resize', applyWidgetResponsiveness);
+  </script>
 </body>
 </html>
