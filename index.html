@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Call Center - AI Assistant Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f7fa;
+      color: #2d3748;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .weather-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem;
+      color: #4a90e2;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1a202c;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #718096;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #4a5568;
+      margin-bottom: 1.5rem;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+    }
+
+    .feature span:last-child {
+      font-size: 0.85rem;
+      color: #718096;
+    }
+
+    .demo-note {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #a0aec0;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+      
+      .features {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="weather-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M12 2V4M12 20V22M4 12H2M6.31412 6.31412L4.8999 4.8999M17.6859 6.31412L19.1001 4.8999M6.31412 17.69L4.8999 19.1042M17.6859 17.69L19.1001 19.1042M22 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>Weather Call Center</h1>
+
+    <p class="demo-note">Demo Version</p>
+  </div>
+
+  <!-- Vapi Widget -->
+  <vapi-widget
+    public-key="e0758676-7dbe-4817-b192-c63cb00beec7"
+    assistant-id="dd2446a2-acb5-4bbe-9cd0-5daadf743d28"
+    mode="voice"
+    theme="light"
+    size="full"
+    radius="large"
+    start-button-text="Start Voice Chat"
+    end-button-text="End Call"
+    empty-voice-message="Click to start a voice conversation"
+  ></vapi-widget>
+
+  <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+</body>
+</html>
